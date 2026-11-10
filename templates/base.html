@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+        Biblioteca
+        {% endblock %}
+    </title>
+</head>
+
+<body>
+
+    <h1>Biblioteca</h1>
+
+    <nav>
+        <a href="{{ url_for('index') }}">Início</a>
+
+        <a href="{{ url_for('new_user') }}">
+            Cadastrar usuário
+        </a>
+
+        <a href="{{ url_for('new_book') }}">
+            Cadastrar livro
+        </a>
+
+        <a href="{{ url_for('listar_livro') }}">
+            Livros
+        </a>
+    </nav>
+
+    {% with mensagens = get_flashed_messages() %}
+        {% for mensagem in mensagens %}
+            <p>{{ mensagem }}</p>
+        {% endfor %}
+    {% endwith %}
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>

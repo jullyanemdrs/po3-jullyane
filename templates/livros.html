@@ -1,0 +1,34 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+    Livros cadastrados
+{% endblock %}
+
+{% block content %}
+
+    <h1>Livros</h1>
+
+    <section class="livros">
+
+        {% for livro in livros %}
+
+            <div class="livro">
+
+                <h4>{{ livro.titulo }}</h4>
+
+                <p>
+                    Usuário: {{ livro.usuario.nome }}
+                </p>
+
+            </div>
+
+        {% else %}
+
+            <span>Não há livros cadastrados.</span>
+
+        {% endfor %}
+
+    </section>
+
+{% endblock %}
